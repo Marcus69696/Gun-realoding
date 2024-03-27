@@ -1,0 +1,35 @@
+import random
+
+class Gun:
+    def __init__(self, name, capacity=10):
+        self.name = name
+        self.capacity = capacity
+        self.ammo_count = capacity
+
+    def shoot(self):
+        if self.ammo_count > 0:
+            print(f"{self.name} fires! Bang!")
+            self.ammo_count -= 1
+        else:
+            print(f"{self.name} is out of ammo!")
+
+    def reload(self):
+        print(f"Reloading {self.name}...")
+        self.ammo_count = self.capacity
+        print(f"{self.name} reloaded. Ammo count: {self.ammo_count}")
+
+
+# Create a gun instance
+gun = Gun("Pistol", capacity=6)
+
+# Simulate shooting with the gun
+print(f"Initial ammo count for {gun.name}: {gun.ammo_count}")
+for _ in range(8):
+    gun.shoot()
+
+# Reload the gun
+gun.reload()
+
+# Shoot again after reloading
+print(f"Ammo count after reloading: {gun.ammo_count}")
+gun.shoot()
