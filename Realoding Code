@@ -1,0 +1,30 @@
+class Gun:
+    def __init__(self, capacity=10):
+        self.capacity = capacity
+        self.ammo_count = capacity
+
+    def shoot(self):
+        if self.ammo_count > 0:
+            print("Bang!")
+            self.ammo_count -= 1
+        else:
+            print("Out of ammo!")
+
+    def reload(self):
+        print("Reloading...")
+        self.ammo_count = self.capacity
+        print("Reloaded. Ammo count:", self.ammo_count)
+
+
+# Example usage
+gun = Gun()
+
+print("Shooting...")
+gun.shoot()  # Shooting with initial ammo count
+gun.shoot()  # Shooting with reduced ammo count
+
+print("\nReloading...")
+gun.reload()  # Reloading the gun
+
+print("\nShooting after reload...")
+gun.shoot()  # Shooting after reloading
